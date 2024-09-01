@@ -1,10 +1,6 @@
 import { Link } from "react-router-dom";
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton,
-} from "@clerk/clerk-react";
+// import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
+import { Button } from "./ui/button";
 
 const Header = () => {
   return (
@@ -13,12 +9,13 @@ const Header = () => {
         <Link to="/">
           <img src="/logo.png" className="h-20" alt="Hired Logo" />
         </Link>
-        <SignedOut>
-          <SignInButton />
-        </SignedOut>
-        <SignedIn>
-          <UserButton />
-        </SignedIn>
+        <Button variant="outline">Login</Button>
+        {/* <SignedOut>
+        <SignInButton />
+      </SignedOut>
+      <SignedIn>
+        <UserButton />
+      </SignedIn> */}
       </nav>
     </>
   );
