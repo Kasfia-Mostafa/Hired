@@ -44,26 +44,6 @@ export async function getSavedJobs(token) {
   return data;
 }
 
-// Read single job
-export async function getSingleJob(token, { job_id }) {
-  const supabase = await supabaseClient(token);
-  let query = supabase
-    .from("jobs")
-    .select(
-      "*, company: companies(name,logo_url), applications: applications(*)"
-    )
-    .eq("id", job_id)
-    .single();
-
-  const { data, error } = await query;
-
-  if (error) {
-    console.error("Error fetching Job:", error);
-    return null;
-  }
-
-  return data;
-}
 
 // - Add / Remove Saved Job
 export async function saveJob(token, { alreadySaved }, saveData) {
@@ -96,6 +76,27 @@ export async function saveJob(token, { alreadySaved }, saveData) {
     return data;
   }
 }
+
+// Read single job
+export async function getSingleJob(token, { job_id }) {
+  const supabase = await supabaseClient(token);
+  let query = supabase
+    .from("jobs")
+    .select(
+      "*, company: companies(name,logo_url), applications: applications(*)"
+    )
+    .eq("id", job_id)
+    .single();
+
+  const { data, error } = await query;
+  if (error) {
+    console.error("Error fetching Job:", error);
+    return null;
+  }
+
+  return data;
+}
+
 
 // - job isOpen toggle - (recruiter_id = auth.uid())
 export async function updateHiringStatus(token, { job_id }, isOpen) {
