@@ -80,7 +80,6 @@ export async function saveJob(token, { alreadySaved }, saveData) {
       console.error("Error removing saved job:", deleteError);
       return data;
     }
-
     return data;
   } else {
     // If the job is not saved, add it to saved jobs
