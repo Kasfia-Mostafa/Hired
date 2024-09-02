@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/select";
 import { getSingleJob, updateHiringStatus } from "@/api/apiJobs";
 import { ApplyJobDrawer } from "@/components/ApplyJobDrawer";
+import ApplicationCard from "@/components/ApplicationCard";
 
 const JobPage = () => {
   const { id } = useParams();
@@ -112,7 +113,7 @@ const JobPage = () => {
         />
       )}
       {loadingHiringStatus && <BarLoader width={"100%"} color="#36d7b7" />}
-      {/* {job?.applications?.length > 0 && job?.recruiter_id === user?.id && (
+      {job?.applications?.length > 0 && job?.recruiter_id === user?.id && (
         <div className="flex flex-col gap-2">
           <h2 className="font-bold mb-4 text-xl ml-1">Applications</h2>
           {job?.applications.map((application) => {
@@ -121,7 +122,7 @@ const JobPage = () => {
             );
           })} 
         </div>
-       )} */}
+       )}
     </div>
   );
 };
