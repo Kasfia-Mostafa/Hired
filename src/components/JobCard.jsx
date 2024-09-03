@@ -33,9 +33,7 @@ const JobCard = ({
     loading: loadingSavedJob,
     data: savedJob,
     fn: fnSavedJob,
-  } = useFetch(saveJob, {
-    alreadySaved: saved,
-  });
+  } = useFetch(saveJob);
 
   const handleSaveJob = async () => {
     await fnSavedJob({
