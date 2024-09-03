@@ -97,7 +97,6 @@ export async function getSingleJob(token, { job_id }) {
   return data;
 }
 
-
 // - job isOpen toggle - (recruiter_id = auth.uid())
 export async function updateHiringStatus(token, { job_id }, isOpen) {
   const supabase = await supabaseClient(token);
